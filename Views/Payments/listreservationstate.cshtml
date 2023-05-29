@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Labrary2023.Models.reservation_state>
+
+@{
+    ViewData["Title"] = "listreservationstate";
+}
+
+<h1>listreservationstate</h1>
+
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.value_state)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.value_state)
+            </td>
+            <td>
+                <a asp-action="editreservationstate" asp-route-id="@item.idres_sta">Edit</a> |
+               
+                <a asp-action="deletereservationstate" asp-route-id="@item.idres_sta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

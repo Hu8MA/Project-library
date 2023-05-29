@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Labrary2023.Models.book_author>
+
+@{
+    ViewData["Title"] = "listBookAuthor";
+}
+
+<h1>listBookAuthor</h1>
+
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.Fname)
+            </td>
+            <td>
+                    <a asp-action="editBookAuthor" asp-route-id="@item.idBo_Au">Edit</a> |
+               
+                    <a asp-action="DeleteBookAuthor" asp-route-id="@item.idBo_Au">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

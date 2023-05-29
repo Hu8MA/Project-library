@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Labrary2023.Models.loan>
+
+@{
+    ViewData["Title"] = "listloan";
+}
+
+<h1>listloan</h1>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.loan_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.return_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.loan_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.return_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Fname)
+            </td>
+            <td>
+                    <a asp-action="editloan" asp-route-id="@item.idlo">Edit</a> |
+
+                    <a asp-action="deleteloan" asp-route-id="@item.idlo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

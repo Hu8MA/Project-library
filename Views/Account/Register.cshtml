@@ -1,0 +1,41 @@
+﻿@model Labrary2023.Security.Register
+
+@{
+    ViewBag.Title = "User Registration";
+}
+
+<div style="margin-top:100px; width:60%">
+    <h1>User Registration</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="username"></label>
+                    <input asp-for="username" class="form-control" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="configpassword"></label>
+                    <input asp-for="configpassword" class="form-control" />
+                    <span asp-validation-for="configpassword" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary" style="margin-top:18px">Register</button>
+            </form>
+        </div>
+    </div>
+
+</div>

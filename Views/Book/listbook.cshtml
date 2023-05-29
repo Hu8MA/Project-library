@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Labrary2023.Models.book>
+
+@{
+    ViewData["Title"] = "list";
+}
+
+<h1>list</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.publish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.copies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.copies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.name)
+            </td>
+            <td>
+                    <a asp-action="editbook" asp-route-id="@item.idbook">Edit</a> |
+                    <a asp-action="DeleteBook" asp-route-id="@item.idbook">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

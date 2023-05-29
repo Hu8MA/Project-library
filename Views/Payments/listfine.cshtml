@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Labrary2023.Models.fine>
+
+@{
+    ViewData["Title"] = "listfine";
+}
+
+<h1>listfine</h1>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fine_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fine_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fine_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fine_amount)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Loan.Member.Fname)
+            </td>
+            <td>
+                    <a asp-action="editfine" asp-route-id="@item.idfn">Edit</a> |
+          
+                    <a asp-action="deletefine" asp-route-id="@item.idfn">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

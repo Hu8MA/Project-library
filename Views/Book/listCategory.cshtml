@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Labrary2023.Models.category>
+
+@{
+    ViewData["Title"] = "listCategory";
+}
+
+<h1>listCategory</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                    <a asp-action="editCategory" asp-route-id="@item.idcat">Edit</a> |
+               
+                    <a asp-action="DeleteCategory" asp-route-id="@item.idcat">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

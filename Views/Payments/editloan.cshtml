@@ -1,0 +1,46 @@
+﻿@model Labrary2023.Models.loan
+
+@{
+    ViewData["Title"] = "editloan";
+}
+
+<h1>editloan</h1>
+
+<h4>loan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="editloan">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idlo" />
+            <div class="form-group">
+                <label asp-for="idbook" class="control-label"></label>
+                <select asp-for="idbook" class="form-control" asp-items="ViewBag.idbook"></select>
+                <span asp-validation-for="idbook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idmeb" class="control-label"></label>
+                <select asp-for="idmeb" class="form-control" asp-items="ViewBag.idmeb"></select>
+                <span asp-validation-for="idmeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="loan_date" class="control-label"></label>
+                <input asp-for="loan_date" class="form-control" />
+                <span asp-validation-for="loan_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="return_date" class="control-label"></label>
+                <input asp-for="return_date" class="form-control" />
+                <span asp-validation-for="return_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Labrary2023.props" />
+</Project>

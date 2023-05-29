@@ -1,0 +1,47 @@
+﻿@model Labrary2023.Models.book
+
+@{
+    ViewData["Title"] = "editbook";
+}
+
+<h1>editbook</h1>
+
+<h4>book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="editbook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idbook" />
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" value="@Model.title" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="publish" class="control-label"></label>
+                <input asp-for="publish" class="form-control" value="@Model.publish" />
+                <span asp-validation-for="publish" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="copies" class="control-label"></label>
+                <input asp-for="copies" class="form-control" value="@Model.copies"/>
+                <span asp-validation-for="copies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idcat" class="control-label"></label>
+                <select asp-for="idcat" class="form-control" asp-items="ViewBag.idcat" ></select>
+                <span asp-validation-for="idcat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

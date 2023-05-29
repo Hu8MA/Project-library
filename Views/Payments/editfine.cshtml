@@ -1,0 +1,41 @@
+﻿@model Labrary2023.Models.fine
+
+@{
+    ViewData["Title"] = "editfine";
+}
+
+<h1>editfine</h1>
+
+<h4>fine</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="editfine">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idfn" />
+            <div class="form-group">
+                <label asp-for="idlon" class="control-label"></label>
+                <select asp-for="idlon" class="form-control" asp-items="ViewBag.idlon"></select>
+                <span asp-validation-for="idlon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fine_Date" class="control-label"></label>
+                <input asp-for="fine_Date" class="form-control" />
+                <span asp-validation-for="fine_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fine_amount" class="control-label"></label>
+                <input asp-for="fine_amount" class="form-control" />
+                <span asp-validation-for="fine_amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+ 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
